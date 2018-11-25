@@ -1,25 +1,39 @@
-import { BrowserModule } from "@angular/platform-browser";
-import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
-import { NgModule } from "@angular/core";
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
 
-import { CovalentLayoutModule } from "@covalent/core/layout";
-import { CovalentCommonModule } from "@covalent/core/common";
-import { CovalentMediaModule } from "@covalent/core/media";
-import { CovalentLoadingModule } from "@covalent/core/loading";
+import { CovalentCommonModule } from '@covalent/core/common';
+import { CovalentLayoutModule } from '@covalent/core/layout';
+import { CovalentLoadingModule } from '@covalent/core/loading';
+import { CovalentMediaModule } from '@covalent/core/media';
 
-import { MatButtonModule } from "@angular/material/button";
-import { MatCardModule } from "@angular/material/card";
-import { MatIconModule } from "@angular/material/icon";
-import { MatListModule } from "@angular/material/list";
-import { MatDividerModule } from "@angular/material/divider";
-import { MatInputModule } from "@angular/material/input";
-import { MatToolbarModule } from "@angular/material/toolbar";
+import { MatCardModule } from '@angular/material/card';
+import { MatButtonModule } from '@angular/material/button';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
+import { MatListModule } from '@angular/material/list';
+import { MatToolbarModule } from '@angular/material/toolbar';
 
-import { AppComponent } from "./app.component";
+import { AppComponent } from './app.component';
+import { AppRoutingModule } from './app-routing.module';
+import { HomeComponent } from './home/home.component';
+import { MainComponent } from './main/main.component';
+import { TopicsComponent } from './topics/topics.component';
+import { FooterComponent } from './footer/footer.component';
+import { HeaderComponent } from './header/header.component';
 
 @NgModule({
-    declarations: [AppComponent],
+    declarations: [
+        AppComponent,
+        HomeComponent,
+        MainComponent,
+        TopicsComponent,
+        FooterComponent,
+        HeaderComponent
+    ],
     imports: [
+        AppRoutingModule,
         BrowserModule,
         BrowserAnimationsModule,
         // covalent modules
@@ -28,15 +42,15 @@ import { AppComponent } from "./app.component";
         CovalentLoadingModule,
         CovalentMediaModule,
         // material modules
-        MatButtonModule,
         MatCardModule,
-        MatIconModule,
-        MatListModule,
+        MatButtonModule,
         MatDividerModule,
+        MatIconModule,
         MatInputModule,
+        MatListModule,
         MatToolbarModule
     ],
     providers: [],
     bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }
