@@ -24,33 +24,33 @@ import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
 
 @NgModule({
-    declarations: [
-        AppComponent,
-        HomeComponent,
-        MainComponent,
-        TopicsComponent,
-        FooterComponent,
-        HeaderComponent
-    ],
-    imports: [
-        AppRoutingModule,
-        BrowserModule,
-        BrowserAnimationsModule,
-        // covalent modules
-        CovalentCommonModule,
-        CovalentLayoutModule,
-        CovalentLoadingModule,
-        CovalentMediaModule,
-        // material modules
-        MatCardModule,
-        MatButtonModule,
-        MatDividerModule,
-        MatIconModule,
-        MatInputModule,
-        MatListModule,
-        MatToolbarModule
-    ],
-    providers: [],
-    bootstrap: [AppComponent]
+  declarations: [
+    AppComponent,
+    HomeComponent,
+    MainComponent,
+    TopicsComponent,
+    FooterComponent,
+    HeaderComponent
+  ],
+  imports: [
+    AppRoutingModule,
+    BrowserModule,
+    BrowserAnimationsModule,
+    // covalent modules
+    CovalentCommonModule,
+    CovalentLayoutModule,
+    CovalentLoadingModule,
+    CovalentMediaModule,
+    // material modules
+    MatCardModule,
+    MatButtonModule,
+    MatDividerModule,
+    MatIconModule,
+    MatInputModule,
+    MatListModule,
+    MatToolbarModule
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}

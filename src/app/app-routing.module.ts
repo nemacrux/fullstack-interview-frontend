@@ -5,20 +5,18 @@ import { TopicsComponent } from './topics/topics.component';
 import { MainComponent } from './main/main.component';
 
 const routes: Routes = [
-    {
-        path: '',
-        component: MainComponent,
-        children: [
-            { path: '', component: HomeComponent },
-            { path: 'topics', component: TopicsComponent }
-        ]
-    }
+  {
+    path: '',
+    component: MainComponent,
+    children: [
+      { path: '', component: HomeComponent },
+      { path: 'topics', component: TopicsComponent }
+    ]
+  }
 ];
 
 @NgModule({
-    imports: [
-        RouterModule.forRoot(routes)
-    ],
-    exports: [RouterModule]
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
