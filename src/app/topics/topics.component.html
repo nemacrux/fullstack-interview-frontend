@@ -1,5 +1,12 @@
 <td-layout-nav>
   <app-header td-toolbar-content flex> </app-header>
-  <p>topics works!</p>
+  <td-layout-manage-list opened="false" mode="side">
+    <!--
+      <mat-toolbar td-sidenav-content></mat-toolbar>
+      <div td-sidenav-content>Sidenav content here</div>
+    -->
+    <mat-toolbar></mat-toolbar>
+    Content goes here <a [routerLink]="['/topics/add']">add</a>
+  </td-layout-manage-list>
   <td-layout-footer> <app-footer></app-footer> </td-layout-footer>
 </td-layout-nav>
