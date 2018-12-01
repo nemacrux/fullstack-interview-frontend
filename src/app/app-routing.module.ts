@@ -1,8 +1,10 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+
 import { HomeComponent } from './home/home.component';
-import { TopicsComponent } from './topics/topics.component';
 import { MainComponent } from './main/main.component';
+import { TopicFormComponent } from './topics/topic-form/topic-form.component';
+import { TopicsComponent } from './topics/topics.component';
 
 const routes: Routes = [
   {
@@ -10,7 +12,13 @@ const routes: Routes = [
     component: MainComponent,
     children: [
       { path: '', component: HomeComponent },
-      { path: 'topics', component: TopicsComponent }
+      {
+        path: 'topics',
+        children: [
+          { path: '', component: TopicsComponent },
+          { path: 'add', component: TopicFormComponent }
+        ]
+      }
     ]
   }
 ];

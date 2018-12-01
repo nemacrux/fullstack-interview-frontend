@@ -17,31 +17,34 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-import { HomeComponent } from './home/home.component';
-import { MainComponent } from './main/main.component';
-import { TopicsComponent } from './topics/topics.component';
 import { FooterComponent } from './footer/footer.component';
+import { HomeComponent } from './home/home.component';
 import { HeaderComponent } from './header/header.component';
+import { HttpClientModule } from '@angular/common/http';
+import { MainComponent } from './main/main.component';
+import { TopicFormComponent } from './topics/topic-form/topic-form.component';
+import { TopicsComponent } from './topics/topics.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    FooterComponent,
+    HeaderComponent,
     HomeComponent,
     MainComponent,
-    TopicsComponent,
-    FooterComponent,
-    HeaderComponent
+    TopicFormComponent,
+    TopicsComponent
   ],
   imports: [
     AppRoutingModule,
     BrowserModule,
     BrowserAnimationsModule,
     // covalent modules
-    CovalentCommonModule,
+    // CovalentCommonModule,
     CovalentLayoutModule,
-    CovalentLoadingModule,
-    CovalentMediaModule,
-    // material modules
+    // CovalentLoadingModule,
+    // CovalentMediaModule,
+    HttpClientModule,
     MatCardModule,
     MatButtonModule,
     MatDividerModule,
