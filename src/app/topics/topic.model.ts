@@ -26,4 +26,18 @@ export class Topic {
   getUpdatedAt(): Date {
     return this.updatedAt;
   }
+
+  static fromJson(object: any): Topic {
+    return new Topic(
+      object.id,
+      object.name,
+      object.description,
+      new Date(object.createdAt),
+      new Date(object.updatedAt)
+    );
+  }
+
+  static fromJsonArray(objectArray: any[]): Topic[] {
+    return objectArray.map((element) => Topic.fromJson(element));
+  }
 }
