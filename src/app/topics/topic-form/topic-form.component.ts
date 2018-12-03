@@ -57,13 +57,14 @@ export class TopicFormComponent implements OnInit {
       if (this.action === 'add') {
         this.topicsService.createTopic(data).subscribe((topic) => {
           console.log('created:', topic);
+          this.goBack();
         });
       } else {
         this.topicsService.updateTopic(this.id, data).subscribe((topic) => {
           console.log('updated:', topic);
+          this.goBack();
         });
       }
-      this.goBack();
     }
   }
 }
