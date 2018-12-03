@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Topic } from './topic.model';
 import { Observable } from 'rxjs';
+import { map, tap } from 'rxjs/operators';
 import { TopicDto } from './topic.dto';
 
 @Injectable({
@@ -14,26 +15,35 @@ export class TopicsService {
   constructor(private httpClient: HttpClient) {}
 
   createTopic(topic: TopicDto): Observable<any> {
-    const headerDict = {
-      'Content-Type': 'application/json'
-    };
+    return this.httpClient.post(`${this.host}/${this.topicsEndpoint}`, {
+      name: topic.name,
+      description: topic.description
+    });
+  }
 
-    const requestOptions = {
-      headers: new HttpHeaders(headerDict)
-    };
-
-    return this.httpClient.post(
-      `${this.host}/${this.topicsEndpoint}`,
-      // 'http://localhost:3000/api/v1/topics',
-      {
-        name: topic.name,
-        description: topic.description
-      },
-      requestOptions
+  deleteTopic(topic: Topic): Observable<any> {
+    return this.httpClient.delete(
+      `${this.host}/${this.topicsEndpoint}/${topic.getId()}`
     );
   }
 
-  getTopics(): Observable<any> {
-    return this.httpClient.get(`${this.host}/${this.topicsEndpoint}`);
+  getTopic(id: number): Observable<Topic> {
+    return this.httpClient
+      .get(`${this.host}/${this.topicsEndpoint}/${id}`)
+      .pipe(map(Topic.fromJson));
+  }
+
+  getTopicList(): Observable<Topic[]> {
+    return this.httpClient.get(`${this.host}/${this.topicsEndpoint}`).pipe(
+      map(Topic.fromJsonArray),
+      tap(console.log)
+    );
+  }
+
+  updateTopic(id: number, topic: TopicDto): Observable<any> {
+    return this.httpClient.put(`${this.host}/${this.topicsEndpoint}/${id}`, {
+      name: topic.name,
+      description: topic.description
+    });
   }
 }

@@ -16,7 +16,8 @@ const routes: Routes = [
         path: 'topics',
         children: [
           { path: '', component: TopicsComponent },
-          { path: 'add', component: TopicFormComponent }
+          { path: 'add', component: TopicFormComponent },
+          { path: ':id/edit', component: TopicFormComponent }
         ]
       }
     ]

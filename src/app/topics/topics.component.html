@@ -1,12 +1,39 @@
 <td-layout-nav>
   <app-header td-toolbar-content flex> </app-header>
   <td-layout-manage-list opened="false" mode="side">
-    <!--
-      <mat-toolbar td-sidenav-content></mat-toolbar>
-      <div td-sidenav-content>Sidenav content here</div>
-    -->
-    <mat-toolbar></mat-toolbar>
-    Content goes here <a [routerLink]="['/topics/add']">add</a>
+    <mat-toolbar>Topics</mat-toolbar>
+    <mat-card>
+      <mat-card-content>
+        <mat-list>
+          <mat-list-item
+            *ngFor="let topic of (topics | async); let last = last"
+          >
+            <h3 matLine>{{ topic.getName() }}</h3>
+            <p matLine>{{ topic.getDescription() }}</p>
+            <span flex></span>
+            <button mat-icon-button [matMenuTriggerFor]="menu">
+              <mat-icon>more_vert</mat-icon>
+            </button>
+            <mat-menu #menu="matMenu">
+              <a [routerLink]="[topic.getId(), 'edit']" mat-menu-item>
+                <mat-icon>edit</mat-icon> Edit
+              </a>
+              <button mat-menu-item (click)="delete(topic)">
+                <mat-icon>delete</mat-icon>
+                <span>Delete</span>
+              </button>
+            </mat-menu>
+            <mat-divider *ngIf="!last"></mat-divider>
+          </mat-list-item>
+        </mat-list>
+      </mat-card-content>
+    </mat-card>
+    <div layout="row">
+      <span flex></span>
+      <a mat-fab [routerLink]="['/topics/add']" class="fab-button"
+        ><mat-icon>add</mat-icon>
+      </a>
+    </div>
   </td-layout-manage-list>
   <td-layout-footer> <app-footer></app-footer> </td-layout-footer>
 </td-layout-nav>
